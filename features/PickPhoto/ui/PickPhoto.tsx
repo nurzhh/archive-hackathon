@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Image, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 export default function PickPhoto() {
-  const [image, setImage] = useState<string | null>(null);
+  const [image, setImage] = React.useState<string | null>(null);
 
   const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
