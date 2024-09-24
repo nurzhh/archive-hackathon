@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 30,
   },
   text: {
     fontWeight: "bold",

@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Text, TouchableOpacity, View, Image } from "react-native";
 import { styles } from "./styles";
 
-export default function App() {
+export default function CreateScreen() {
   const [permission, requestPermission] = useCameraPermissions();
   const [photo, setPhoto] = React.useState<any | null>(null);
   const cameraRef = React.useRef<CameraView | null>(null);

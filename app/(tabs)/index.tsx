@@ -1,5 +1,5 @@
-import CreateScreen from "@/features/CreateScreen/ui/CreateScreen";
+import MainScreen from "@/widgets/Main/ui/Main";
 
 export default function HomeScreen() {
-  return <CreateScreen />;
+  return <MainScreen />;
 }
