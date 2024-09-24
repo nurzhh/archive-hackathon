@@ -1,71 +1,45 @@
-import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
-import { useState } from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { CameraView, useCameraPermissions } from "expo-camera";
+import { useState, useRef } from "react";
+import { Button, Text, TouchableOpacity, View, Image } from "react-native";
+import { styles } from "./styles";
 
-export default function CreateScreen() {
-  const [facing, setFacing] = useState<CameraType>("back");
+export default function App() {
   const [permission, requestPermission] = useCameraPermissions();
+  const [photo, setPhoto] = useState<any | null>(null);
+  const cameraRef = useRef<CameraView | null>(null);
 
   if (!permission) {
-    // Camera permissions are still loading.
     return <View />;
   }
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet.
     return (
       <View style={styles.container}>
         <Text style={styles.message}>
           We need your permission to show the camera
         </Text>
-        <Button onPress={requestPermission} title="grant permission" />
+        <Button onPress={requestPermission} title="Grant Permission" />
       </View>
     );
   }
-
-  function toggleCameraFacing() {
-    setFacing((current) => (current === "back" ? "front" : "back"));
+  async function takePicture() {
+    if (cameraRef.current) {
+      const options = { quality: 0.5, base64: true };
+      const photoData = (await cameraRef.current.takePictureAsync(
+        options
+      )) as any;
+      setPhoto(photoData.uri);
+    }
   }
 
   return (
     <View style={styles.container}>
-      <CameraView style={styles.camera} facing={facing}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-            <Text style={styles.text}>Flip Camera</Text>
-          </TouchableOpacity>
-        </View>
+      <CameraView style={styles.camera} ref={cameraRef}>
+        <TouchableOpacity style={styles.snapContainer} onPress={takePicture}>
+          <Text style={styles.text}>SNAP</Text>
+        </TouchableOpacity>
       </CameraView>
+      {photo && <Image source={{ uri: photo }} style={styles.photoPreview} />}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  message: {
-    textAlign: "center",
-    paddingBottom: 10,
-  },
-  camera: {
-    flex: 1,
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: "row",
-    backgroundColor: "transparent",
-    margin: 64,
-  },
-  button: {
-    flex: 1,
-    alignSelf: "flex-end",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-  },
-});
