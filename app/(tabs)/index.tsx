@@ -1,14 +1,5 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedView } from '@/components/ThemedView';
-import CreateScreen from '@/features/CreateScreen/ui/CreateScreen';
-import Header from '@/features/header/Header';
-
+import MainScreen from "@/widgets/Main/ui/Main";
 
 export default function HomeScreen() {
-  return (
-  <Header/>
-  );
+  return <MainScreen />;
 }
-

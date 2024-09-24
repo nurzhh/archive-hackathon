@@ -4,13 +4,14 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  message: {
+    textAlign: "center",
+    paddingBottom: 10,
+  },
   camera: {
     flex: 1,
     alignItems: "center",
     justifyContent: "flex-end",
-  },
-  snap: {
-    color: "#fff",
   },
   snapContainer: {
     borderWidth: 1,
@@ -18,17 +19,18 @@ export const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 50,
-    alignItems: "center",
     justifyContent: "center",
-    marginBottom: 20,
+    alignItems: "center",
+    marginBottom: 30,
   },
-  takePhotoContainer: {
-    position: 'absolute',
-    top: 50,
-    left: 10,
-    borderColor: "#fff",
-    borderWidth: 1,
-    height: 200,
-    width: 200
-  }
+  text: {
+    fontWeight: "bold",
+    color: "white",
+  },
+  photoPreview: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+  },
 });
