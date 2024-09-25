@@ -18,8 +18,7 @@ function Header() {
 
 const styles = StyleSheet.create ({
 	container: {
-		display: "flex",
-		alignContent: "flex-end",
+		
 	},
 	topContainer: {
 		display: "flex",
