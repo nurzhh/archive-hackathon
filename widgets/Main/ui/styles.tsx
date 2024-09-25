@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 0,
     borderRadius: 10,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    marginTop: 220,
+    marginTop: 0,
   },
   image: {
     height: 124,
@@ -27,5 +27,8 @@ export const styles = StyleSheet.create({
     color: "rgba(0, 0, 0, 0.30)",
     fontSize: 13,
     lineHeight: 20,
+  },
+  plusContainer: {
+    marginTop: 16,
   },
 });
