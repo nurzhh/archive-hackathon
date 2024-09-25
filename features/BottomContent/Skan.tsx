@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { View, Text, Image } from 'react-native';
 import imgIcon from '../../assets/images/Feather Icon.png';
 import burgerDots from '../../assets/images/burger-dots.png';
-import collection from '../../assets/images/collection.png';
+// import collection from '../../assets/images/collection.png';
 
 function Skan() {
   return (
@@ -32,27 +32,6 @@ function Skan() {
     </View>
   );
 }
-
-function Hui() {
-  return (
-    <View style={styles.containerr}>
-      <Image source={collection} style={styles.collectionImg}/>
-      <Text>У вас нет коллекций</Text>
-      <Text>Создайте новый коллекцию</Text>
-    </View>
-  )
-}
-
-export default function Hui;
-
-const styles = StyleSheet.create({
-  containerr: {
-    display: 'flex',
-    alignItems:'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-  }
-})
 
 const styles = StyleSheet.create({
   container: {
